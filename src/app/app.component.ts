@@ -54,7 +54,7 @@ export class AppComponent {
         this.filmsSource.next([...updatedFilmList, ...currentYearFilms]);
         this.filteredFilmsSource.next([
           ...filteredFilmSource,
-          ...currentYearFilms.slice(0, 10),
+          ...currentYearFilms.slice(0, 5),
         ]);
       });
   }
