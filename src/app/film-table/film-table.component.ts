@@ -19,6 +19,7 @@ export class FilmTableComponent {
   }
   dataSource!: MatTableDataSource<Film>;
   displayedColumns: string[] = [
+    'index',
     'name',
     'year',
     'views',
