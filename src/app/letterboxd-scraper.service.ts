@@ -45,6 +45,7 @@ const annimationList: Record<string, boolean> = {
   klaus: animationDiscount,
   'kung-fu-panda': animationDiscount,
   'lilo-stitch': animationDiscount,
+  'look-back-2024': animationDiscount,
   'luca-2021': animationDiscount,
   'lupin-the-third-the-castle-of-cagliostro': animationDiscount,
   'marcel-the-shell-with-shoes-on-2021': animationDiscount,
@@ -214,9 +215,9 @@ const movieYear: Record<number, Thresholds> = {
   2018: { maxBonus: 0.13, weight: 0.000000094, views: 200000 },
   2019: { maxBonus: 0.13, weight: 0.000000094, views: 200000 },
   2020: { maxBonus: 0.13, weight: 0.000000094, views: 200000 },
-  2021: { maxBonus: 0.11, weight: 0.000000094, views: 350000 },
-  2022: { maxBonus: 0.11, weight: 0.000000094, views: 400000 },
-  2023: { maxBonus: 0.1, weight: 0.000000094, views: 400000 },
+  2021: { maxBonus: 0.11, weight: 0.000000094, views: 200000 },
+  2022: { maxBonus: 0.11, weight: 0.000000094, views: 200000 },
+  2023: { maxBonus: 0.1, weight: 0.000000094, views: 200000 },
   2024: { maxBonus: 0.1, weight: 0.000000094, views: 200000 },
   2025: { maxBonus: 0.1, weight: 0.000000094, views: 200000 },
   2026: { maxBonus: 0.1, weight: 0.000000094, views: 200000 },
@@ -242,6 +243,8 @@ const ignoreList = new Set<string>([
   'euphoria-fck-anyone-whos-not-a-sea-blob', // TV show
   'euphoria-trouble-dont-last-always', // TV show
   'free-solo', // Documentary
+  'fullmetal-alchemist-brotherhood', // TV show
+  'grizzly-man', // Documentary
   'hamilton-2020', // Concert
   'the-haunting-2018', // TV mini series,
   'the-haunting-of-bly-manor', // TV mini series
@@ -442,7 +445,7 @@ export class LetterboxdScraperService {
     const endIndex = filmHtml.indexOf(endingDelimiter, startIndex);
     return filmHtml.substring(startIndex, endIndex);
   }
-  
+
   private getYear(filmHtml: string): string {
     let titleIndex = filmHtml.indexOf('title="');
     if (titleIndex < 0) {
