@@ -1,5 +1,7 @@
 <button mat-button (click)="onGetFilms()">Get films</button>
-<input [ngModel]="year" (ngModelChange)="setYear($event)"/>
+<button mat-button (click)="export()">Export</button>
+
+<input [ngModel]="year" (ngModelChange)="setYear($event)" />
 
 <ng-container *ngIf="films$ | async as films">
   Films: {{ films.length }}

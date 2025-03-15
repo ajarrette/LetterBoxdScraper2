@@ -63,4 +63,16 @@ export class AppComponent {
     this.page = 1;
     this.year = +year;
   }
+
+  export() {
+    this.films$.pipe(first()).subscribe((films) => {
+      let output: string = '';
+      films.sort((a, b) => b.weightedRating - a.weightedRating);
+      for (let i = 0; i < films?.length; ++i) {
+        const film = films[i];
+        output += `https://letterboxd.com${film.link}\n`;
+      }
+      console.log(output);
+    });
+  }
 }
